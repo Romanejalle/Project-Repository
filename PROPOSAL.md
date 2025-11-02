@@ -1,62 +1,61 @@
 # Project Proposal — Rugby Portfolio Analytics
 
 ## Project Title and Category
-**Title:** Rugby Performance Portfolio: A Data-Driven Approach to Player Evaluation 
-**Category:** Data Analysis & Visualization (Sports Analytics / Finance Hybrid)  
+**Title:** Rugby Portfolio Analytics: Predicting Player Performance with Machine Learning
+**Category:** Data Analysis & Visualization / Machine Learning (Sports Analytics & Finance Hybrid)
 
 ## Problem Statement or Motivation
-In professional rugby, player evaluation is often based on subjective opinions or limited statistics. However, just like in financial markets, each player’s performance can be seen as a combination of return (points scored, assists, tackles completed) and risk (variability, injuries, inconsistency).
-The motivation behind this project is to create a data-driven model that evaluates rugby players in the same way investors evaluate financial assets.By analyzing metrics such as points, tackles, assists, minutes played, and availability, the goal is to quantify both performance and consistency.Ultimately, the project aims to build a fair and interpretable ranking of players — and, if possible, an “optimal team portfolio” that balances risk and performance across positions.
+In professional rugby, player evaluation often relies on subjective assessments or isolated statistics. Yet, player performance and consistency can be analyzed much like financial assets — each player generates “returns” (points, assists, tackles) but also carries “risk” (injuries, inconsistency, variability).
+
+This project aims to develop a data-driven framework that applies machine learning to predict future player performance from historical data. The predictions will then feed into a portfolio-style optimization model, helping identify an “optimal team” that balances expected performance and risk — similar to how investors optimize portfolios for return and volatility.
+
+The motivation is both personal and academic: combining a passion for rugby with quantitative analysis and predictive modeling, bridging sports data and financial logic.
 
 ## Planned Approach and Technologies
-The project will be implemented in two stages:
+The project will be implemented in two major stages:
 
-Player Performance Analysis (Base Model):
+**1. Predictive Modeling (Machine Learning core)**
 
-Use Python (pandas, NumPy) to load and clean a dataset of professional rugby players (e.g., Kaggle or World Rugby sources).
-Compute standardized performance metrics and a “performance-to-risk ratio” (similar to a Sharpe Ratio).
-Normalize comparisons by position to account for different roles (forwards vs backs).
-Visualize results with matplotlib and seaborn.
+Use Python (pandas, NumPy, scikit-learn) to preprocess and analyze a dataset of professional rugby players (e.g., from Kaggle or World Rugby).
 
-Portfolio-Style Team Selection (Stretch Goal):
+Create predictive features: past performance averages (rolling windows), minutes played, age, position, and workload metrics.
 
-Treat each player as an asset and build an “optimal XV” using performance and volatility measures.
-Ensure positional diversification (8 forwards, 7 backs).
-Use NumPy or SciPy for basic optimization and visualize the efficient frontier between performance and risk.
+Train and compare regression models — Linear Regression, Random Forest, and Gradient Boosting — to predict a player’s future performance metric (e.g., points or overall rating per match).
 
-Development will take place in VS Code, with version control through Git and GitHub. 
+Evaluate models using MAE, RMSE, and R², comparing against a simple baseline (e.g., average of recent performances).
+
+**2. Portfolio Optimization (Application Layer)**
+
+Use model predictions as the expected return (μ) for each player.
+
+Estimate risk (σ) from prediction variance or past performance volatility.
+
+Build a simplified portfolio optimization: select an “optimal XV” that maximizes predicted performance while maintaining positional diversity (8 forwards, 7 backs).
+
+Visualize results using matplotlib and seaborn (e.g., performance distributions, efficient frontier).
+
+Development will take place in VS Code, with version control and documentation through Git and GitHub.
 
 ## Expected Challenges and Mitigation
-Data availability and quality: Rugby data can be incomplete; I will combine multiple sources or simulate missing variables (e.g., injuries).
 
-Normalization by position: Handle positional bias by comparing players only within their role.
-
-Defining metrics: Experiment with different formulas for “return” and “risk” until results make sense intuitively.
-
-Optimization complexity: Start with simple averages before using optimization libraries if time permits.
-
-Time management: Divide the work into weekly milestones and track progress through Git commits. 
+- Data availability: If complete rugby datasets are hard to find, combine multiple public sources or simulate limited variables (e.g., injury risk).
+- Data leakage / overfitting: Use a time-based split (train on past seasons, test on later ones) to ensure realistic evaluation.
+- Positional bias: Train separate models or normalize performance metrics by position.
+- Model interpretability: Use feature importance or SHAP values to explain predictions.
 
 ## Success Criteria
 The project will be successful if it:
 
-Produces clean, interpretable results and visualizations;
-
-Generates logical rankings by position;
-
-Demonstrates a clear link between performance and variability;
-
-Is well-documented and version-controlled on GitHub;
-
-(Optional) Successfully builds an optimal “team portfolio.”
+- Produces a working ML model that predicts player performance better than a naive baseline.
+- Shows clear relationships between features (e.g., age, workload) and predicted performance.
+- Generates interpretable results and visualizations (feature importance, prediction vs. actual).
+- Demonstrates clean, reproducible code with proper Git versioning.
+- Optionally, integrates predictions into a functioning “team portfolio” optimization.
 
 ## Stretch Goals
-If time allows:
+If time allows, the project could be extended by:
 
-Implement the portfolio optimization model;
-
-Create an interactive dashboard (using Plotly or Streamlit);
-
-Analyze performance trends over time;
-
-Integrate new data sources or explore clustering (e.g., K-means for player profiles).
+- Developing a Streamlit dashboard for interactive exploration of predictions and player rankings.
+- Incorporating a simple injury or availability prediction model to better capture the “risk” aspect.
+- Extending the model to team-level predictions (estimating match outcomes from combined player stats).
+- Exploring hyperparameter tuning or ensemble averaging to slightly improve prediction accuracy.
