@@ -1,0 +1,13 @@
+Target,Model,CV_Mean_R2,CV_Std_R2
+points_per_match,Linear Regression,-0.5437504767731001,0.785708395893537
+points_per_match,Ridge Regression,-0.3248625049171904,0.623271597618284
+points_per_match,Random Forest,0.06929599792633397,0.6202989948226506
+points_per_match,Gradient Boosting,-0.16317616091462647,0.6178014573906427
+tries_per_match,Linear Regression,0.8172986832516816,0.07860037926922091
+tries_per_match,Ridge Regression,0.8342047360530851,0.08896412235250459
+tries_per_match,Random Forest,0.8291121092171142,0.09331335362426807
+tries_per_match,Gradient Boosting,0.8412553571534668,0.07962305886798565
+tackles_per_match,Linear Regression,0.921640034622361,0.035429278760120204
+tackles_per_match,Ridge Regression,0.9190321454451,0.031750402890934955
+tackles_per_match,Random Forest,0.751601910967882,0.13256823996188286
+tackles_per_match,Gradient Boosting,0.8528132207301724,0.07021548174184601
